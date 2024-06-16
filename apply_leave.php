@@ -21,11 +21,23 @@ if(isset($_SESSION['email'])){
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="subject">Subject:</label>
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter subject">
+                        <input type="text" class="form-control" name="subject" id="subject" required placeholder="Enter subject">
                     </div>
                     <div class="form-group">
                         <label for="message">Message:</label>
-                        <textarea class="form-control" rows="5" cols="50" name="message" id="message" placeholder="Type Message"></textarea>
+                        <textarea class="form-control" rows="5" cols="50" name="message" id="message" required placeholder="Type Message"></textarea>
+                        <label>Start date:</label>
+                        <input type="date" class="form-control" required name="start_date">
+                        <label>End date:</label>
+                        <input type="date" class="form-control" required name="end_date">
+                        <label >Type:</label>
+                        <select class="form-control" required name="type">
+            <option value="Casual Leave">CL(Casual Leave)</option>
+            <option value="Maternity Leave">ML(Maternity Leave)</</option>
+            <option value="Duty Leave">DL(Duty Leave)</</option>
+            <option value="Compensatory Leave">CPL(Compensatory Leave)</option>
+            
+         </select>
                     </div>
                     <div class="text-center">
                         <input type="submit" class="btn btn-warning" name="submit_leave" value="Submit">
