@@ -6,7 +6,7 @@ if(isset($_SESSION['email'])){
 include('includes/connection.php');
 if(isset($_POST['submit_leave'])){
   
-  $query="insert into leaves values(null,$_SESSION[uid],'$_POST[subject]','$_POST[message]','Pending')";
+  $query="insert into leaves values(null,$_SESSION[uid],'$_POST[subject]','$_POST[message]','Pending','$_POST[start_date]','$_POST[end_date]','$_POST[type]')";
   $query_run=mysqli_query($connection,$query);
   if($query_run){
     echo "<script type='text/javascript'>

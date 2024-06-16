@@ -9,7 +9,7 @@ include('../includes/connection.php');
     <table class="table" style="background-color: whitesmoke; ">
         <tr>
             <th>S.No</th>
-            <th>Task ID</th>
+            <th>Name</th>
             <th>Description</th>
             <th>Start Date</th>
             <th>End Date</th>
@@ -20,11 +20,21 @@ include('../includes/connection.php');
         $sno=1;
         $query="select * from tasks";
         $query_run=mysqli_query($connection,$query);
+      
         while($row=mysqli_fetch_assoc($query_run)){
+            $uid=$row['uid'];
+            $queryU = "SELECT name FROM users WHERE uid = $uid";
+            $query_runU=mysqli_query($connection,$queryU);
+            $Name="null";
+            if($name=$query_runU->fetch_assoc()){
+                $Name=$name;
+            }
             ?>
+
             <tr>
+            
             <td><?php echo $sno; ?></td>
-            <td><?php echo $row['tid']; ?></td>
+            <td><?php echo $Name['name'] ?></td>
             <td><?php echo $row['description']; ?></td>
             <td><?php echo $row['start_date']; ?></td>
             <td><?php echo $row['end_date']; ?></td>
